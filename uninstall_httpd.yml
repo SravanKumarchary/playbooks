@@ -1,0 +1,16 @@
+---
+- name: install the httpd packages
+  hosts: all
+  become: true
+  tasks:
+  - name: install yum install the httdp
+    yum:
+      name: httpd
+      state: absent
+
+
+  - name: start the httpd
+    service:
+      name: httpd
+      state: removed
+

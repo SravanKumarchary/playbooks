@@ -1,0 +1,9 @@
+---
+- name: install the packages
+  hosts: all
+  become : true
+  tasks:
+  - name: uninstall in packages
+    yum:
+      name: git
+      state: absent

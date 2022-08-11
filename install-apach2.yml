@@ -1,0 +1,28 @@
+---
+- name: install the httpd
+  hosts: all
+  become: true
+  tasks:
+  - name:install the httpd
+    yum:
+     name:httpd
+     state: installed
+    when: ansible_os_family == "Redhat"
+  
+  - name: start the httpd
+    service:
+    name: httpd
+    state: started
+   when: ansible_os_family  == "Redhat"
+
+  - name:install the apache2
+    apt:
+     name: apache2
+     state: installed
+    when: ansible_os_family == "debian"
+  
+  - name: start the apache2
+    service:
+    name: httpd
+    state: started
+   when: ansible_os_family  == "debian"
